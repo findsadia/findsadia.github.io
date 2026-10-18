@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sadia Naveed | Blue Team SOC Analyst</title>
+<meta name="description" content="Sadia Naveed, Blue Team SOC Analyst. Detect, triage, contain and defend.">
+<style>
+:root{color-scheme:dark;--bg:#0a1424;--panel:#101e35;--card:#13233f;--ink:#e6edf8;--muted:#93a4c3;--blue:#4c8dff;--amber:#ffb020;--green:#2ee59d;--line:#223454}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 50% 0,transparent 0,var(--bg) 75%);pointer-events:none;z-index:-1}
+a{color:var(--blue);text-decoration:none}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:rgba(10,20,36,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding:12px 0;font-size:.9rem}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;margin-right:auto;color:var(--ink)}
+nav a:not(.brand){color:var(--muted)}
+nav a:not(.brand):hover{color:var(--amber)}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;color:var(--green);border:1px solid var(--green);border-radius:99px;padding:3px 12px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--green);animation:p 1.6s infinite}
+@keyframes p{50%{opacity:.25}}
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;padding:72px 0 56px}
+h1{font-size:clamp(2.4rem,6vw,3.8rem);line-height:1.1;margin:14px 0}
+h1 span{color:var(--blue)}
+.lead{color:var(--muted);font-size:1.08rem;max-width:560px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{padding:11px 20px;border-radius:8px;font-weight:600;border:1px solid var(--blue)}
+.btn.p{background:var(--blue);color:#06101f;border-color:var(--blue)}
+.term{background:#070f1d;border:1px solid var(--line);border-radius:12px;font-size:.82rem;overflow:hidden}
+.term .bar{background:var(--panel);padding:8px 14px;color:var(--muted);border-bottom:1px solid var(--line)}
+.term pre{padding:16px;white-space:pre-wrap;color:var(--muted)}
+.ok{color:var(--green)}.warn{color:var(--amber)}.info{color:var(--blue)}
+section{padding:56px 0;border-top:1px solid var(--line)}
+.eyebrow{color:var(--amber);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+h2{font-size:1.9rem;margin:6px 0 10px}
+.sub{color:var(--muted);max-width:640px;margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;border-top:3px solid var(--blue)}
+.card h3{margin-bottom:6px;font-size:1.1rem}
+.card p,.card li{color:var(--muted);font-size:.93rem}
+.card ul{padding-left:18px;margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips span{font-size:.75rem;padding:3px 10px;border-radius:6px;background:var(--panel);border:1px solid var(--line);color:var(--blue)}
+.layers{display:grid;gap:10px}
+.layer{display:grid;grid-template-columns:150px 1fr;gap:16px;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:10px;padding:14px 18px}
+.layer:nth-child(even){border-left-color:var(--blue)}
+.layer b{color:var(--ink)}
+.layer span{color:var(--muted);font-size:.93rem}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;counter-increment:s}
+.step::before{content:"0" counter(s);display:block;color:var(--amber);font-family:ui-monospace,monospace;font-size:.8rem}
+.step b{display:block}.step span{color:var(--muted);font-size:.85rem}
+.tl{display:grid;gap:16px}
+.tl article{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;border-left:4px solid var(--green)}
+.date{color:var(--green);font-size:.8rem}
+.tl h3{margin:2px 0}.org{color:var(--blue);font-size:.9rem}
+.tl p{color:var(--muted);font-size:.93rem;margin-top:6px}
+footer{padding:32px 0;text-align:center;color:var(--muted);border-top:1px solid var(--line);font-size:.88rem}
+@media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:48px}.layer{grid-template-columns:1fr;gap:4px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="brand" href="#top"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4c8dff" stroke-width="2"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke="#2ee59d"/></svg>SADIA / BLUE TEAM</a>
+<a href="#defense">Defense</a><a href="#work">Projects</a><a href="#experience">Experience</a><a href="#arsenal">Arsenal</a><a href="#contact">Contact</a>
+<span class="status mono"><i></i>MONITORING</span>
+</nav></div></header>
+
+<main id="top">
+<div class="wrap hero">
+<div>
+<div class="eyebrow mono">Defensive security / SOC / Threat detection</div>
+<h1>Sadia <span>Naveed</span></h1>
+<p class="lead">SOC Analyst focused on the defensive side of cybersecurity: monitoring, alert triage, threat analysis and incident response. I help organizations detect attacks early and contain them fast, from SIEM rules to web application firewalls.</p>
+<div class="btns"><a class="btn p" href="#defense">See how I defend</a><a class="btn" href="Sadia_Naveed_CV.pdf">Download CV</a></div>
+</div>
+<div class="term mono">
+<div class="bar">soc-console — sample view</div>
+<pre><span class="warn">[ALERT]</span> Multiple failed logins detected
+<span class="info">[TRIAGE]</span> Reviewing auth logs and source IP
+<span class="info">[ENRICH]</span> Checking IP reputation
+<span class="warn">[ACTION]</span> Unauthorized IP blocked at firewall
+<span class="ok">[DONE]</span>  Incident documented, rule tuned</pre>
+</div>
+</div>
+
+<section id="defense"><div class="wrap">
+<div class="eyebrow mono">01 / Defense in depth</div><h2>Every layer, monitored.</h2>
+<p class="sub">No single control stops everything. Here is how my work maps across the layers of a defended environment.</p>
+<div class="layers">
+<div class="layer"><b>Perimeter</b><span>Wazuh with pfSense to monitor traffic and block unauthorized IPs; Squid proxy integrated with VirusTotal</span></div>
+<div class="layer"><b>Network</b><span>Snort, IDS/IPS concepts, Wireshark packet and traffic analysis</span></div>
+<div class="layer"><b>Endpoint</b><span>Wazuh agents, Windows, PowerShell and Sysmon event analysis, File Integrity Monitoring, Windows Defender</span></div>
+<div class="layer"><b>Application</b><span>Safex WAF against SQL Injection, XSS, Path Traversal and Command Injection; OWASP ZAP and Burp Suite testing</span></div>
+<div class="layer"><b>Threat intel</b><span>VirusTotal, malicious domain monitoring, CTI research, OSINT</span></div>
+<div class="layer"><b>Detect &amp; respond</b><span>Wazuh and Splunk, alert triage, false-positive analysis, custom rules, containment and remediation support</span></div>
+</div>
+<h3 style="margin:34px 0 14px">How I handle an incident</h3>
+<div class="flow">
+<div class="step"><b>Detect</b><span>Alert fires in the SIEM</span></div>
+<div class="step"><b>Triage</b><span>Real threat or false positive?</span></div>
+<div class="step"><b>Investigate</b><span>Logs, hosts, indicators</span></div>
+<div class="step"><b>Contain</b><span>Stop the spread</span></div>
+<div class="step"><b>Remediate</b><span>Fix and recover</span></div>
+<div class="step"><b>Improve</b><span>Document and tune rules</span></div>
+</div>
+</div></section>
+
+<section id="work"><div class="wrap">
+<div class="eyebrow mono">02 / Projects</div><h2>Defenses I built and tested.</h2>
+<div class="grid">
+<div class="card"><h3>Safex: AI-Powered WAF</h3>
+<p>Final year project. A Dockerized multi-layer Web Application Firewall with machine learning detection, runtime monitoring, threat intelligence and honeypots.</p>
+<ul><li>Adaptive rules and IP reputation filtering</li><li>Flask dashboard with attacker profiling and threat scoring</li><li>eBPF monitoring for reverse shells and sensitive file access</li></ul>
+<div class="chips"><span>Python</span><span>Flask</span><span>Docker</span><span>ML</span><span>eBPF</span></div></div>
+<div class="card"><h3>Web App Penetration Test</h3>
+<p>Found and validated weaknesses with OWASP ZAP, Burp Suite and Metasploit, then mapped findings to CVSS severity with mitigation advice, so defenders know what to fix first.</p>
+<div class="chips"><span>OWASP ZAP</span><span>Burp Suite</span><span>Metasploit</span><span>CVSS</span></div></div>
+</div></div></section>
+
+<section id="experience"><div class="wrap">
+<div class="eyebrow mono">03 / Experience</div><h2>On the front line.</h2>
+<div class="tl">
+<article><div class="date mono">AUG 2026 — PRESENT</div><h3>Trainee SOC Analyst</h3><div class="org">DWP Group, Lahore</div>
+<p>Monitor and triage Wazuh alerts across Windows, PowerShell, Sysmon, authentication, endpoint and firewall events. Tune detections, write custom Wazuh rules and support incident response.</p></article>
+<article><div class="date mono">JUL 2025 — SEP 2025</div><h3>CTI Intern</h3><div class="org">ThingzEye</div>
+<p>Contributed to a threat intelligence tool, researching brand impersonation and fake social media accounts.</p></article>
+<article><div class="date mono">JUL 2024 — SEP 2024</div><h3>Python Development Intern</h3><div class="org">CodersCave</div>
+<p>Automated tasks with Python scripts, APIs and data handling.</p></article>
+<article><div class="date mono">JUN 2024 — SEP 2024</div><h3>SOC Analyst Intern</h3><div class="org">ITSOLERA Pvt Ltd</div>
+<p>Integrated Wazuh with pfSense, linked VirusTotal with Squid and Wazuh, and worked on log analysis, FIM and Windows Defender.</p></article>
+</div></div></section>
+
+<section id="arsenal"><div class="wrap">
+<div class="eyebrow mono">04 / Arsenal</div><h2>Tools &amp; training.</h2>
+<div class="grid">
+<div class="card"><h3>SIEM &amp; detection</h3><p>Wazuh, Splunk, custom rules, log analysis, FIM</p></div>
+<div class="card"><h3>Network</h3><p>Wireshark, Snort, IDS/IPS, networking</p></div>
+<div class="card"><h3>Offensive knowledge</h3><p>Metasploit, Nessus, OpenVAS, OWASP ZAP, Burp Suite</p></div>
+<div class="card"><h3>Forensics &amp; intel</h3><p>FTK, malware analysis, OSINT</p></div>
+<div class="card"><h3>Code</h3><p>Python, C++, C, C#, MySQL</p></div>
+<div class="card"><h3>Education &amp; courses</h3><p>BS Cybersecurity, Air University. Cyber Security Analyst [C3SA], CyberWarfare Labs. SOFTEC’25 Cyber Security competition.</p></div>
+</div></div></section>
+
+<section id="contact"><div class="wrap">
+<div class="eyebrow mono">05 / Contact</div><h2>Let’s defend something together.</h2>
+<p class="sub">Open to SOC, detection engineering and defensive security opportunities.</p>
+<div class="btns">
+<a class="btn p" href="mailto:sadianaveed613@gmail.com">Send an email</a>
+<a class="btn" href="https://www.linkedin.com/in/sadia-naveed">LinkedIn</a>
+<a class="btn" href="https://github.com/findsadia">GitHub</a>
+</div></div></section>
+</main>
+<footer class="mono">© 2026 Sadia Naveed · Detect · Respond · Defend</footer>
+</body>
+</html>
