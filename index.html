@@ -33,7 +33,9 @@ h1 span{color:var(--blue)}
 .term .bar{background:var(--panel);padding:8px 14px;color:var(--muted);border-bottom:1px solid var(--line)}
 .term pre{padding:16px;white-space:pre-wrap;color:var(--muted)}
 .ok{color:var(--green)}.warn{color:var(--amber)}.info{color:var(--blue)}
-.photo{width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid var(--blue);box-shadow:0 0 0 6px rgba(76,141,255,.15);margin-bottom:8px}
+.side{display:flex;flex-direction:column;align-items:center;gap:24px}
+.side .term{width:100%}
+.photo{width:170px;height:170px;border-radius:50%;object-fit:cover;border:3px solid var(--blue);box-shadow:0 0 0 6px rgba(76,141,255,.15);flex-shrink:0}
 section{padding:56px 0;border-top:1px solid var(--line)}
 .eyebrow{color:var(--amber);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
 h2{font-size:1.9rem;margin:6px 0 10px}
@@ -66,19 +68,20 @@ footer{padding:32px 0;text-align:center;color:var(--muted);border-top:1px solid 
 <body>
 <header><div class="wrap"><nav>
 <a class="brand" href="#top"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4c8dff" stroke-width="2"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke="#2ee59d"/></svg>SADIA / BLUE TEAM</a>
-<a href="#defense">Defense</a><a href="#work">Projects</a><a href="#experience">Experience</a><a href="#arsenal">Arsenal</a><a href="#contact">Contact</a>
+<a href="#defense">Defense</a><a href="#work">Projects</a><a href="#experience">Experience</a><a href="#arsenal">Arsenal</a><a href="#community">Community</a><a href="#contact">Contact</a>
 <span class="status mono"><i></i>MONITORING</span>
 </nav></div></header>
 
 <main id="top">
 <div class="wrap hero">
 <div>
-<img class="photo" src="Sadia%20Image.jpg" alt="Sadia Naveed">
 <div class="eyebrow mono">Defensive security / SOC / Threat detection</div>
 <h1>Sadia <span>Naveed</span></h1>
 <p class="lead">SOC Analyst focused on the defensive side of cybersecurity: monitoring, alert triage, threat analysis and incident response. I help organizations detect attacks early and contain them fast, from SIEM rules to web application firewalls.</p>
 <div class="btns"><a class="btn p" href="#defense">See how I defend</a><a class="btn" href="Sadia%20Naveed%20%28CV%29%20%281%29.pdf" download="Sadia_Naveed_CV.pdf">Download CV</a><a class="btn" href="Sadia%20Naveed%20%28CV%29%20%281%29.pdf" target="_blank" rel="noopener">View CV</a></div>
 </div>
+<div class="side">
+<img class="photo" src="Sadia%20Image.jpg" alt="Sadia Naveed">
 <div class="term mono">
 <div class="bar">soc-console — sample view</div>
 <pre><span class="warn">[ALERT]</span> Multiple failed logins detected
@@ -86,6 +89,7 @@ footer{padding:32px 0;text-align:center;color:var(--muted);border-top:1px solid 
 <span class="info">[ENRICH]</span> Checking IP reputation
 <span class="warn">[ACTION]</span> Unauthorized IP blocked at firewall
 <span class="ok">[DONE]</span>  Incident documented, rule tuned</pre>
+</div>
 </div>
 </div>
 
@@ -141,14 +145,24 @@ footer{padding:32px 0;text-align:center;color:var(--muted);border-top:1px solid 
 <div class="grid">
 <div class="card"><h3>SIEM &amp; detection</h3><p>Wazuh, Splunk, custom rules, log analysis, FIM</p></div>
 <div class="card"><h3>Network</h3><p>Wireshark, Snort, IDS/IPS, networking</p></div>
-<div class="card"><h3>Offensive knowledge</h3><p>Metasploit, Nessus, OpenVAS, OWASP ZAP, Burp Suite</p></div>
+<div class="card"><h3>Offensive knowledge</h3><p>Penetration testing, Metasploit, Nessus, OpenVAS, OWASP ZAP, Burp Suite</p></div>
 <div class="card"><h3>Forensics &amp; intel</h3><p>FTK, malware analysis, OSINT</p></div>
-<div class="card"><h3>Code</h3><p>Python, C++, C, C#, MySQL</p></div>
-<div class="card"><h3>Education &amp; courses</h3><p>BS Cybersecurity, Air University. Cyber Security Analyst [C3SA], CyberWarfare Labs. SOFTEC’25 Cyber Security competition.</p></div>
+<div class="card"><h3>Code</h3><p>Python, C++, C, C#, MySQL, WordPress</p></div>
+<div class="card"><h3>Education</h3><p>BS Cybersecurity, Air University, Islamabad (2022 – 2026). ICS, Superior College Mianwali (2020 – 2022).</p></div>
+</div></div></section>
+
+<section id="community"><div class="wrap">
+<div class="eyebrow mono">05 / Community</div><h2>Leadership, volunteering &amp; awards.</h2>
+<p class="sub">Defending systems is teamwork, and so is building a community around it.</p>
+<div class="grid">
+<div class="card"><h3>Ambassador</h3><div class="org">The Citizen Foundation (TCF), Mianwali</div><p>Volunteer ambassador for TCF. Received a certificate for conducting career counseling sessions in TCF schools.</p></div>
+<div class="card"><h3>Team Lead, Events Management</h3><div class="org">Air University Cyber Security Society, Islamabad</div><p>Led the events management team for the university’s cybersecurity society.</p></div>
+<div class="card"><h3>Lead, Decor Club</h3><p>Led the club team and its activities.</p></div>
+<div class="card"><h3>Honours &amp; courses</h3><ul><li>SOFTEC’25 Cyber Security competition</li><li>Cyber Security Analyst [C3SA], CyberWarfare Labs</li><li>The Complete Cyber Security Course: Hackers Exposed</li><li>CyberWarfare Labs webinar attendance</li><li>Scavenger Hunt participation</li></ul></div>
 </div></div></section>
 
 <section id="contact"><div class="wrap">
-<div class="eyebrow mono">05 / Contact</div><h2>Let’s defend something together.</h2>
+<div class="eyebrow mono">06 / Contact</div><h2>Let’s defend something together.</h2>
 <p class="sub">Open to SOC, detection engineering and defensive security opportunities.</p>
 <div class="btns">
 <a class="btn p" href="mailto:sadianaveed613@gmail.com">Send an email</a>
