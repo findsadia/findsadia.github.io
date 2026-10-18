@@ -64,6 +64,30 @@ h2{font-size:1.9rem;margin:6px 0 10px}
 .tl p{color:var(--muted);font-size:.93rem;margin-top:6px}
 footer{padding:32px 0;text-align:center;color:var(--muted);border-top:1px solid var(--line);font-size:.88rem}
 @media(max-width:780px){.hero{grid-template-columns:1fr;padding-top:48px}.layer{grid-template-columns:1fr;gap:4px}}
+.stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:34px}
+.stats b{display:block;font-size:2.3rem;line-height:1;color:var(--green);text-shadow:0 0 18px rgba(46,229,157,.5)}
+.stats span{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+h1 span{background:linear-gradient(90deg,#4c8dff,#2ee59d,#4c8dff);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+body::after{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none;background:radial-gradient(circle at 20% 30%,rgba(76,141,255,.16),transparent 35%),radial-gradient(circle at 80% 70%,rgba(46,229,157,.12),transparent 35%);animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(4%,-3%) scale(1.1)}}
+.photo{animation:float 5s ease-in-out infinite,glow 3s ease-in-out infinite alternate}
+@keyframes float{50%{transform:translateY(-10px)}}
+@keyframes glow{to{box-shadow:0 0 44px rgba(46,229,157,.7),0 0 0 12px rgba(46,229,157,.1)}}
+.btn{transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(76,141,255,.35)}
+.card,.layer,.step,.tl article{transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover,.step:hover,.tl article:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,.4),0 0 20px rgba(76,141,255,.18);border-color:var(--blue)}
+.layer:hover{transform:translateX(8px);border-color:var(--blue)}
+.chips span{transition:background .2s,color .2s}
+.chips span:hover{background:var(--blue);color:#06101f}
+.term pre::after{content:"\2588";color:var(--green);animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--blue),var(--green));z-index:10}
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.js .rv.in{opacity:1;transform:none}
+nav a.on{color:var(--amber)!important}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -81,6 +105,11 @@ footer{padding:32px 0;text-align:center;color:var(--muted);border-top:1px solid 
 <div class="role">Trainee SOC Analyst</div>
 <p class="lead">SOC Analyst focused on the defensive side of cybersecurity: monitoring, alert triage, threat analysis and incident response. I help organizations detect attacks early and contain them fast, from SIEM rules to web application firewalls.</p>
 <div class="btns"><a class="btn p" href="#defense">See how I defend</a><a class="btn" href="Sadia%20Naveed%20%28CV%29%20%281%29.pdf" download="Sadia_Naveed_CV.pdf">Download CV</a><a class="btn" href="Sadia%20Naveed%20%28CV%29%20%281%29.pdf" target="_blank" rel="noopener">View CV</a></div>
+<div class="stats">
+<div><b data-n="4">0</b><span>Roles &amp; internships</span></div>
+<div><b data-n="2">0</b><span>Major projects</span></div>
+<div><b data-n="4">0</b><span>Attack types blocked by Safex</span></div>
+</div>
 </div>
 <div class="side">
 <img class="photo" src="Sadia%20Image.jpg" alt="Sadia Naveed">
@@ -158,7 +187,6 @@ footer{padding:32px 0;text-align:center;color:var(--muted);border-top:1px solid 
 <p class="sub">Defending systems is teamwork, and so is building a community around it.</p>
 <div class="grid">
 <div class="card"><h3>Ambassador</h3><div class="org">The Citizen Foundation (TCF), Mianwali</div><p>Volunteer ambassador for TCF. Received a certificate for conducting career counseling sessions in TCF schools.</p></div>
-<div class="card"><h3>Team Lead, Events Management</h3><div class="org">Air University Cyber Security Society, Islamabad</div><p>Led the events management team for the university’s cybersecurity society.</p></div>
 <div class="card"><h3>Lead, Decor Club</h3><p>Led the club team and its activities.</p></div>
 <div class="card"><h3>Honours &amp; courses</h3><ul><li>SOFTEC’25 Cyber Security competition</li><li>Cyber Security Analyst [C3SA], CyberWarfare Labs</li><li>The Complete Cyber Security Course: Hackers Exposed</li><li>CyberWarfare Labs webinar attendance</li><li>Scavenger Hunt participation</li></ul></div>
 </div></div></section>
@@ -173,5 +201,25 @@ footer{padding:32px 0;text-align:center;color:var(--muted);border-top:1px solid 
 </div></div></section>
 </main>
 <footer class="mono">© 2026 Sadia Naveed · Detect · Respond · Defend</footer>
+<script>
+(function(){
+var d=document,r=d.documentElement;r.classList.add("js");
+var bar=d.createElement("div");bar.id="bar";d.body.appendChild(bar);
+var links=[].slice.call(d.querySelectorAll("nav a[href^='#']:not(.brand)")),secs=links.map(function(a){return d.querySelector(a.getAttribute("href"))});
+function sc(){var h=r.scrollHeight-innerHeight;bar.style.width=(h>0?scrollY/h*100:0)+"%";
+var cur=-1;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<innerHeight*.4)cur=i});
+links.forEach(function(a,i){a.classList.toggle("on",i===cur)})}
+addEventListener("scroll",sc,{passive:true});sc();
+var items=d.querySelectorAll(".card,.layer,.step,.tl article,section h2,.sub,.eyebrow");
+items.forEach(function(e,i){e.classList.add("rv");e.style.transitionDelay=(i%4)*90+"ms"});
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){var e=x.target;e.classList.add("in");io.unobserve(e);setTimeout(function(){e.classList.remove("rv","in");e.style.transitionDelay=""},1000)}})},{threshold:.12});
+items.forEach(function(e){io.observe(e)});
+d.querySelectorAll("[data-n]").forEach(function(b){var n=+b.dataset.n,i=0;var t=setInterval(function(){i++;b.textContent=i;if(i>=n)clearInterval(t)},400)});
+var pre=d.querySelector(".term pre");
+if(pre){var lines=pre.innerHTML.split("\n"),k=0;pre.innerHTML="";
+function step(){if(k<lines.length){pre.innerHTML=lines.slice(0,k+1).join("\n");k++;setTimeout(step,900)}else{setTimeout(function(){k=0;pre.innerHTML="";step()},3500)}}
+step()}
+})();
+</script>
 </body>
 </html>
